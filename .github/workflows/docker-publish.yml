@@ -15,7 +15,7 @@ env:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, X64, node20, docker]
     permissions:
       contents: read
       packages: write
@@ -62,7 +62,7 @@ jobs:
 
   test-image:
     needs: build-and-push
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, X64, node20, docker]
     if: github.event_name != 'pull_request'
 
     steps:
